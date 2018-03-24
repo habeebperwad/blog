@@ -1,8 +1,16 @@
 <header>
-	<div>
-        <h1><a href="{{ site.baseurl }}">{{ site.title }}</a></h1>
-    </div>
     <div>
-        <h3>Lessons Learnt from Lines</h3>
+        {% if page.title == blank: %}
+            <div>
+                    <h1><a href="{{ site.baseurl }}">{{ site.title }}</a></h1>
+            </div>
+            <div>
+                <h3>Lessons Learnt from Lines</h3>
+            </div>
+        {% else: %}
+            <div>
+                    <a href="{{ site.baseurl }}">Home: perwad.in</a>
+            </div>
+        {% endif %}
     </div>
 </header>
