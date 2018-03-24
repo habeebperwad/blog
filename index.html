@@ -1,8 +1,16 @@
 ---
 layout: default
 ---
-
-{% for post in site.posts %}
-		<time>{{ post.date | date: "%b %-d, %Y" }}</time>
-		<h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
-{% endfor %}
+<div class="home">
+    {% for post in site.posts %}
+        <article>
+            <h1 class="entry-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
+    <div class="entry-meta">
+        <span class="categories-links"> {{ post.category }} </span>
+        <span class="date">| &nbsp; &nbsp; <time class="entry-date"> {{ post.date | date: "%b %-d, %Y" }}</time> </span>
+        <span class="tags-links">| &nbsp; &nbsp; {{post.tags | join: ', '}} </span>
+    </div>
+            {{ post.content| truncatewords:50 | strip_html  }}
+        </article>
+    {% endfor %}
+</div>
