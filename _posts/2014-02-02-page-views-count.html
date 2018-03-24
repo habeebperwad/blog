@@ -1,0 +1,37 @@
+---
+layout: post
+title: Page Views Count
+permalink: page-views-count
+date: 2014-02-02 10:07:49.000000000 +05:30
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+category: Web
+tags: []
+---
+<p>Page views count is the count of number of times a webpage has been viewed. It can be used to list the most read articles.</p>
+<figure>
+<img src="{{ site.baseurl }}/images/bbc-most-popular-read.jpg" alt="BBC most popular read news" width="336" height="300" /><br />
+</figure>
+<p>Users may increase page views to make their article most read. Such fake views should be omitted from calculating the count. Website should identify each users in order to avoid fake views.</p>
+<p>The approach describing here cannot calculate accurate count. Many genuine views may be misinterpreted. It is okay since the same issue affects all pages. But It can eliminate fake views significantly.</p>
+<h2>Identify users</h2>
+<p>If the website can be accessed only by registered users, it is easier to identify each users. Users may create multiple accounts to get multiple identities. User activity data (login history, page views, chat history, friend list, etc) will be useful to figure out suspicious accounts. It is better omitting views from such accounts for calculating the count.</p>
+<p>Most websites can be visited by anonymous users. It is difficult to get identity of an anonymous user. Only data available about an anonymous user is the web request for the webpage. The request may contain user agent details, website data (cookie, local storage data, etc) stored in the user agent and IP address. The user agent details and website data can be manipulated by any users. IP address is more reliable data to treat as user identity.</p>
+<h2>Treating IP address as user identity</h2>
+<p>A single IP address may be used by multiple users. Many organizations use a single IP (Proxy machine) to connect to the Internet. All user requests will be forwarded to Internet through the proxy. Website will treat all users from the organization as a single user. It is okay since it will affect all pages equally.</p>
+<p>It is not much easier to a user to visit a webpage from different IP addresses. Public proxy servers can be used to overcome this. You have to follow some strategy to detect public proxy servers. It will be difficult. You may need to collect IP addresses of all public proxy servers.</p>
+<h2>Indirect views</h2>
+<p>User can make his article retrieved from multiple IP addresses by embedding (using iframe tag, script tag, etc) the article URL to his website. All of his website users’ may indirectly retrieve the article and our website may count it as genuine views since the webpage requests from different IP addresses.</p>
+<p>You can detect the manipulation by checking the <a href="http://en.wikipedia.org/wiki/HTTP_referer">HTTP referer</a> header. Only few referrer requests should be considered, such as search engines, social networking sites, etc. Preparing the list will be tedious task.</p>
+<h2>Detect embedded webpage</h2>
+<p>The views count can be calculated at the time of generating the webpage or you can include a script inside the webpage to request for calculating the count.</p>
+<p>The later approach will separate the webpage content generation and views count calculation. The former approach will work only if the server get web request. There is no guarantee. Users may get webpage from cache server. The later approach can work well from cache environment.</p>
+<p>The script will detect whether the webpage is embedded or not and will issue a HTTP post request for calculating views count.</p>
+<h2>Registered and anonymous users</h2>
+<p>Your website can be accessed by both type of users. You can combine both strategies. It will be complex. If we don’t have any strategy to identify fake accounts, we may store IP address also with registered user for each of his page views data. To simplify the strategy, consider all users as anonymous.</p>
+<h2>Revisiting a webpage</h2>
+<p>Users may revisit a webpage if the page is interesting or useful. A duration should be defined. All page views from a user between the duration should be treated as a single page view.</p>
+<p>Based on the traffic of your website, you can set the duration as one week or one month. A user can create 12 fake views per year from an IP address if the duration is one month. The duration should be defined so that the fake views can be negligible when comparing with the average page views per the duration for the website.</p>

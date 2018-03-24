@@ -1,0 +1,231 @@
+---
+layout: post
+title: Most common words in English
+permalink: most-common-words-in-english
+date: 2017-04-24 18:24:32.000000000 +05:30
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+category: NLP
+tags:
+- Machine Learning
+- Natural Language Processing
+---
+<blockquote>
+Once there lived a poor woodcutter. He used to cut trees in the woods. One day he was cutting wood on the bank of a river. His axe fell down into the river. The river was deep. He could not take his axe out. He sat on the bank and began to weep.<br />
+<br />
+Mercury, the god of water appeared. He asked the reason of his weeping. The woodcutter told the whole story. Mercury dived into the water and brought a golden axe. The woodcutter refused to take it. Mercury again dived and brought a silver axe. The woodcutter did not take it either. Then he brought an iron axe. The woodcutter took it gladly. Mercury was much pleased. He rewarded the woodcutter with the other two axes.
+</p></blockquote>
+<p>Let us find some keywords for the story. One simple approach is that choose the words which are more frequent in the documents as keywords.<br />
+The frequency list of the words in the document is given below. The list prepared without considering the meaning of the words. So <strong>axe</strong> and <strong>axes</strong> were considered as different words.</p>
+<table>
+<tr>
+<td><b>Word</b></td>
+<td><b>Frequency</b></td>
+</tr>
+<tr>
+<td>the</td>
+<td>15</td>
+</tr>
+<tr>
+<td>he</td>
+<td>7</td>
+</tr>
+<tr>
+<td>woodcutter</td>
+<td>6</td>
+</tr>
+<tr>
+<td>axe</td>
+<td>5</td>
+</tr>
+<tr>
+<td>a</td>
+<td>4</td>
+</tr>
+<tr>
+<td>mercury</td>
+<td>4</td>
+</tr>
+<tr>
+<td>of</td>
+<td>3</td>
+</tr>
+<tr>
+<td>to</td>
+<td>3</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+</table>
+<p><strong>the</strong>, <strong>of</strong>, <strong>to</strong> etc. possess no characteristics of the document. These words are more close to grammar than meaning. They are connecting words to form sentence. These words are occurring frequently in English language and should be excluded from the frequency list.</p>
+<p>How do we come up with the common words in English language?</p>
+<p>Oxford has done a good job of identifying common words in English language. There are some  remarkable findings in their research. The first ten most common lemmas(a lemma is the base form of a word. For example, climbs, climbing, and climbed are all examples of the one lemma climb) is constituted 25% of the corpus they built and  the first 100 lemmas are 50% of the corpus. The 100 lemmas list is given below.</p>
+<table id="id_mcw" cellpadding="5" bordercolor="#000000" border="1" bgcolor="#ccffff" cellspacing="0">
+<tbody>
+<tr valign="middle" align="left">
+<td>1 &nbsp;&nbsp; the <br />
+            2 &nbsp;&nbsp; be <br />
+            3 &nbsp;&nbsp; to <br />
+            4 &nbsp;&nbsp; of <br />
+            5 &nbsp;&nbsp; and <br />
+            6 &nbsp;&nbsp; a <br />
+            7 &nbsp;&nbsp; in <br />
+            8 &nbsp;&nbsp; that <br />
+            9 &nbsp;&nbsp; have <br />
+            10 &nbsp; I <br />
+            11 &nbsp; it <br />
+            12 &nbsp; for <br />
+            13 &nbsp; not <br />
+            14 &nbsp; on <br />
+            15 &nbsp; with <br />
+            16 &nbsp; he <br />
+            17 &nbsp; as <br />
+            18 &nbsp; you <br />
+            19 &nbsp; do <br />
+            20 &nbsp; at <br />
+            21 &nbsp; this <br />
+            22 &nbsp; but <br />
+            23 &nbsp; his <br />
+            24 &nbsp; by <br />
+            25 &nbsp; from <br />
+            &nbsp;</td>
+<td>26 &nbsp; they <br />
+            27 &nbsp; we <br />
+            28 &nbsp; say <br />
+            29 &nbsp; her <br />
+            30 &nbsp; she <br />
+            31 &nbsp; or <br />
+            32 &nbsp; an <br />
+            33 &nbsp; will <br />
+            34 &nbsp; my <br />
+            35 &nbsp; one <br />
+            36 &nbsp; all <br />
+            37 &nbsp; would <br />
+            38 &nbsp; there <br />
+            39 &nbsp; their <br />
+            40 &nbsp; what <br />
+            41 &nbsp; so <br />
+            42 &nbsp; up <br />
+            43 &nbsp; out <br />
+            44 &nbsp; if <br />
+            45 &nbsp; about <br />
+            46 &nbsp; who <br />
+            47 &nbsp; get <br />
+            48 &nbsp; which <br />
+            49 &nbsp; go <br />
+            50 &nbsp; me <br />
+            &nbsp;</td>
+<td>51 &nbsp; when <br />
+            52 &nbsp; make <br />
+            53 &nbsp; can <br />
+            54 &nbsp; like <br />
+            55 &nbsp; time <br />
+            56 &nbsp; no <br />
+            57 &nbsp; just <br />
+            58 &nbsp; him <br />
+            59 &nbsp; know <br />
+            60 &nbsp; take <br />
+            61 &nbsp; people <br />
+            62 &nbsp; into <br />
+            63 &nbsp; year <br />
+            64 &nbsp; your <br />
+            65 &nbsp; good <br />
+            66 &nbsp; some <br />
+            67 &nbsp; could <br />
+            68 &nbsp; them <br />
+            69 &nbsp; see <br />
+            70 &nbsp; other <br />
+            71 &nbsp; than <br />
+            72 &nbsp; then <br />
+            73 &nbsp; now <br />
+            74 &nbsp; look <br />
+            75 &nbsp; only <br />
+            &nbsp;</td>
+<td>76 &nbsp; come <br />
+            77 &nbsp; its <br />
+            78 &nbsp; over <br />
+            79 &nbsp; think <br />
+            80 &nbsp; also <br />
+            81 &nbsp; back <br />
+            82 &nbsp; after <br />
+            83 &nbsp; use <br />
+            84 &nbsp; two <br />
+            85 &nbsp; how <br />
+            86 &nbsp; our <br />
+            87 &nbsp; work <br />
+            88 &nbsp; first <br />
+            89 &nbsp; well <br />
+            90 &nbsp; way <br />
+            91 &nbsp; even <br />
+            92 &nbsp; new <br />
+            93 &nbsp; want <br />
+            94 &nbsp; because <br />
+            95 &nbsp; any <br />
+            96 &nbsp; these <br />
+            97 &nbsp; give <br />
+            98 &nbsp; day <br />
+            99 &nbsp; most <br />
+            100 &nbsp; us <br />
+            &nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>Here is the frequent words excluding the hundred words.</p>
+<table>
+<tr>
+<td><b>Word</b></td>
+<td><b>Frequency</b></td>
+</tr>
+<tr>
+<td>woodcutter</td>
+<td>6</td>
+</tr>
+<tr>
+<td>axe</td>
+<td>5</td>
+</tr>
+<tr>
+<td>mercury</td>
+<td>4</td>
+</tr>
+<tr>
+<td>brought</td>
+<td>3</td>
+</tr>
+<tr>
+<td>river</td>
+<td>3</td>
+</tr>
+<tr>
+<td>bank</td>
+<td>2</td>
+</tr>
+<tr>
+<td>dived</td>
+<td>2</td>
+</tr>
+<tr>
+<td>water</td>
+<td>2</td>
+</tr>
+</table>
+<p>Say these eight words(woodcutter, axe, mercury, river, brought, dived, water, bank) to any one of your friends. If the friend ever read the story, it would remind her the story. Otherwise just ask to any one of the search engines!</p>
+<p>It produced a good set of keywords even though it failed to identify significant keywords like <strong>gold</strong>, <strong>silver</strong>, etc.</p>
+<style>
+table {
+   margin-left: 100px;
+   margin-bottom: 20px;
+}
+table td {
+   border: 1px solid black;
+   padding: 5px 10px;
+}
+#id_mcw td {
+   padding-right: 10px;
+}</p>
+</style>
