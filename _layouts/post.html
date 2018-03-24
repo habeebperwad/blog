@@ -3,7 +3,13 @@ layout: default
 ---
 
 <h1 class="main-title">{{ page.title }}</h2>
-<time>{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</time>
+<div class="single">
+    <div class="entry-meta">
+        <span class="categories-links"> {{ page.category }} </span>
+        <span class="date">| &nbsp; &nbsp; <time class="entry-date"> {{ page.date | date: "%b %-d, %Y" }}</time> </span>
+        <span class="tags-links">| &nbsp; &nbsp; {{page.tags | join: ', '}} </span>
+    </div>
+</div>
 <div class="entry-content">
     {{ content }}
 </div>

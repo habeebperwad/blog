@@ -2,14 +2,14 @@
     <div>
         {% if page.title == blank: %}
             <div>
-                    <h1 class="site-title"><a href="{{ site.baseurl }}">{{ site.title }}</a></h1>
+                    <h1 class="site-title">{{ site.title }}</h1>
             </div>
             <div>
                 <h3 class="site-description">Lessons Learnt from Lines</h3>
             </div>
         {% else: %}
             <div>
-                    <a href="{{ site.baseurl }}">Home: perwad.in</a>
+                    <a href="{{ site.url }}">Home: perwad.in</a>
             </div>
         {% endif %}
     </div>
