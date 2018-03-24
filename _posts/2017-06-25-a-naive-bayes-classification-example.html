@@ -1,0 +1,98 @@
+---
+layout: post
+title: A naive bayes classification example
+permalink: a-naive-bayes-classification-example
+date: 2017-06-25 07:17:26.000000000 +05:30
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data science
+tags:
+- Machine Learning
+- Natural Language Processing
+---
+<p>I have collected Forbes’ 2017 <a href="https://www.forbes.com/billionaires/list/">billionaire profiles</a> (2043 articles) and new York times' <a href="https://www.nytimes.com/interactive/projects/notable-deaths/2016">notable deaths 2016</a> (364 articles). These articles are about individuals. Here I am developing a simple machine learning program for classifying the articles based on <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes classifier</a> using python/<a href="https://en.wikipedia.org/wiki/Natural_Language_Toolkit">nltk</a>.</p>
+<p>Let us use words for <a href="https://en.wikipedia.org/wiki/Feature_(machine_learning)">feature</a>. A word is considered here as a combination of only English alphabets. The feature will be whether a word is present or not. Eg:- does the article contain the word ‘death’?</p>
+<p>Thirty articles are taken for training data; Fifteen each from the two categories. All the remaining articles are taken as test data. All words from the training data used for preparing features and the machine learning program classified the test data with accuracy 94.66%.</p>
+<p>The accuracy is good. But there is always room for improvement. One of the widely used method in natural language processing is exclude <a href="https://en.wikipedia.org/wiki/Stop_words">stop words</a> from consideration. But the no-stop-words method reduced the accuracy to 91.29%. What does it mean? Stop words are crucial in the data?</p>
+<p>What about using only stop words for generating features? The result was 99.79% accuracy; impressive result. The stop words list contains only 153 words. I selected around <a href="http://www.bckelk.ukfsn.org/words/uk1000n.html">1000 most common English words</a>. Basically it should be super set of stop words. The new method, say only-common-words, classified 99.75% accurately.</p>
+<p>Tried the <a href="https://en.wikipedia.org/wiki/Stemming">stemmed</a> form of words for building features and got only 97.48% accuracy. Good accuracy but couldn’t outperform only-stop-word method.</p>
+<p>Machine learning is about learning from examples. What about adding more examples? Moved ten articles from test data to training data. The moving process repeated a few more times. Here is the result:</p>
+<table id="esm_table" align="center">
+<tbody>
+<tr>
+<td rowspan="2" valign="bottom"><b>FEATURE METHOD</b></td>
+<td colspan="6" align="center"><b>NUMBER OF TRAINING DATA</b></td>
+</tr>
+<tr>
+<td align="center"><b>30</b></td>
+<td align="center"><b>40</b></td>
+<td align="center"><b>50</b></td>
+<td align="center"><b>60</b></td>
+<td align="center"><b>70</b></td>
+<td align="center"><b>80</b></td>
+</tr>
+<tr>
+<td><b>Only stop words</b></td>
+<td>99.79</td>
+<td>99.79</td>
+<td>99.87</td>
+<td>99.87</td>
+<td>99.87</td>
+<td>99.91</td>
+</tr>
+<tr>
+<td><b>Only common words</b></td>
+<td>99.75</td>
+<td>99.79</td>
+<td>99.92</td>
+<td>99.91</td>
+<td>99.91</td>
+<td style="color: red;">99.96</td>
+</tr>
+<tr>
+<td><b>Stemming</b></td>
+<td>97.48</td>
+<td>98.27</td>
+<td>99.19</td>
+<td>99.49</td>
+<td>99.61</td>
+<td>99.70</td>
+</tr>
+<tr>
+<td><b>All words</b></td>
+<td>94.66</td>
+<td>96.83</td>
+<td>97.96</td>
+<td>98.76</td>
+<td>98.93</td>
+<td>99.48</td>
+</tr>
+<tr>
+<td><b>No stop words</b></td>
+<td>91.29</td>
+<td>94.00</td>
+<td>96.39</td>
+<td>97.49</td>
+<td>97.82</td>
+<td>98.45</td>
+</tr>
+</tbody>
+</table>
+<p>The deatiled output is available in <a href="https://github.com/habeebperwad/perwad.in_blog/blob/master/a_naive_bayes_classification_example/output.txt">github</a>.</p>
+<p>Only-common-words method with 80 training data produced very high accuracy of 99.96%. Out of 2327 test data, it classified wrongly only one article!! Here is the visual comparison of all the experiments.</p>
+<p><img class="alignnone wp-image-537 size-full" src="{{ site.baseurl }}/assets/output.png" width="640" height="480" /></p>
+<p>Which feature set is relevant? Only-common-words has the advantage of using limited number of features (maximum 1000 features). Whereas only-stop-words is using less number of features (maximum 153 features). All-words, no-stop-words and stemming are using large number of features and the number features increases while the number of training examples increases. Will the accuracy of only-stop-words or only-common-words decrease while the number of training examples increases?</p>
+<p><i><a href="https://github.com/habeebperwad/perwad.in_blog/tree/master/a_naive_bayes_classification_example">. See the python/ntlk code is in GitHub</a></i></p>
+<style>
+#esm_table {<br />
+   margin-bottom: 50px;<br />
+}<br />
+#esm_table td {<br />
+   padding: 5px 15px;<br />
+   border: 1px solid black;<br />
+}<br />
+</style>
