@@ -4,7 +4,7 @@ layout: default
 <div class="home">
     {% for post in site.posts %}
         <article>
-            <h1 class="entry-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
+            <h2 class="entry-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
     <div class="entry-meta">
         <span class="categories-links"> {{ post.category }} </span>
         <span class="date">| &nbsp; &nbsp; <time class="entry-date"> {{ post.date | date: "%b %-d, %Y" }}</time> </span>

@@ -6,16 +6,16 @@ a {
     text-decoration: none;
 }
 
-/* fonts */
+/* fonts * /
 
 @font-face {
       font-family: 'Handlee';
       src: url("./Handlee-Regular.ttf");
       
   }
-
+*/
 html {
-    font-family: "Source Sans Pro", Helvetica, sans-serif
+    font-family: "georgia,'times new roman',times,serif"
 }
 
 .main-title, 
@@ -113,7 +113,7 @@ body {
 
 
 .entry-content p, .entry-content li, .entry-summary p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-align: justify;
 } 
 
@@ -123,10 +123,12 @@ body {
     text-align: justify;
 } 
 
+/*
 .entry-content p:first-letter {
     font-weight: bold;
     color: #600;
 }
+*/
 
 .entry-content li {
     margin: 0.5rem 0;
@@ -226,11 +228,17 @@ body {
 }
 
 .home .entry-title, .archive .entry-title {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
 }
 
-.single h2 {
+.single h2, .entry-content h2 {
     font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0.3rem 0; 
+}
+
+.single h4, .entry-content h4 {
+    font-size: 1.25rem;
     font-weight: bold;
     margin: 0.3rem 0; 
 }
