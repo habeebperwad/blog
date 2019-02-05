@@ -237,6 +237,12 @@ body {
     margin: 0.3rem 0; 
 }
 
+.single h3, .entry-content h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0.3rem 0; 
+}
+
 .single h4, .entry-content h4 {
     font-size: 1.25rem;
     font-weight: bold;
