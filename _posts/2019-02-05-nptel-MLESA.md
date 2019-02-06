@@ -48,6 +48,8 @@ The instructor may use Matlab for giving examples. If you have any programming e
 If you happened to know R or Matlab, you can use that knowledge for solving assignment problems.
 But if you don't know those languages, not at all need to worry. You can achieve anything using python!
 
+If you didn't set up python environment in your local machine or want to share the code with friends, try [Colab](https://colab.research.google.com/).
+
 #### Disclaimer (or about me!)
 I have no relations with NPTEL to make any formal statement about this course. 
 This page created for helping my coursemates! My qualification are eight years experience in software industry, Bsc-Statistics, Master of computer science, UGC NET (CS). So I have decent understanding of statistics, mathematics and computer science.
