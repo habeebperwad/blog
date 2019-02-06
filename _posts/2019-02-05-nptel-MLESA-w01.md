@@ -104,6 +104,19 @@ of the other vectors.
 * **What is eigenvalue decomposition?**
 * **What singular value decomposition?**
 
+
+<p>&nbsp;</p>
+
+### Python Tips
+---
+* [Python Introduction and Linear Algebra, stanford.edu](https://web.stanford.edu/class/cs231a/section/section1.pdf)
+* [Matrix or vector norm](https://docs.scipy.org/doc/numpy-1.16.1/reference/generated/numpy.linalg.norm.html?highlight=norm)
+* [Matrix product](https://docs.scipy.org/doc/numpy-1.16.1/reference/generated/numpy.dot.html)
+* [Matrix eigenvalues](https://docs.scipy.org/doc/numpy-1.16.1/reference/routines.linalg.html#matrix-eigenvalues)
+* [Singular Value Decomposition](https://docs.scipy.org/doc/numpy-1.16.1/reference/generated/numpy.linalg.svd.html) 
+
+
+
 <p>&nbsp;</p>
 
 ### Reference list
