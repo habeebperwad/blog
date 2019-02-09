@@ -1,6 +1,8 @@
 ---
 layout: post
 title: NPTEL Machine Learning for&nbsp;Engineering&nbsp;and&nbsp;Science&nbsp;Applications
+redirect_from:
+    - /nptel--mlesa--home
 permalink: nptel--mlesa
 date: 2019-02-05 15:32:00.000000000 +05:30
 type: post
