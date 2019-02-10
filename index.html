@@ -3,6 +3,9 @@ layout: default
 ---
 <div class="home">
     {% for post in site.posts %}
+    {% if post.tags contains 'sub-page' %}
+     {% continue %}
+    {% endif %}
         <article>
             <h2 class="entry-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
     <div class="entry-meta">

@@ -9,7 +9,7 @@ published: true
 password: ''
 status: publish
 category: Education
-tags: [for-indians, nptel, nptel-mlesa]
+tags: [for-indians, nptel, nptel-mlesa, sub-page]
 ---
 
 ## Overview of Machine Learning
