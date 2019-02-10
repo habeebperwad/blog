@@ -17,7 +17,7 @@ tags: [Machine Learning, for-indians, nptel]
 Here is some short notes I am preparing for this course. It will be useful for revision. 
 
 * [**Week 1**:  Mathematical Basics 1 – Introduction to Machine Learning, Linear Algebra](/nptel--mlesa--w01)
-* Week 2  :  Mathematical Basics 2 -- Probability
+* [**Week 2**:  Mathematical Basics 2 -- Probability](/nptel--mlesa--w02)
 * Week 3  :  Computational Basics – Numerical computation and optimization, Introduction to Machine Learning packages
 * Week 4  :  Linear and Logistic Regression – Bias/Variance Tradeoff, Regularization, Variants of Gradient Descent, MLE, MAP, Applications
 * Week 5  :  Neural Networks – Multilayer Perceptron, Backpropagation, Applications
