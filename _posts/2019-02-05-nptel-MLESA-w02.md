@@ -82,6 +82,7 @@ The standard deviation of a random variable is the square root of its variance. 
 ### Reference list
 ---
 * The lessons covered from both the books: deep learning book and PRML.
+* Book [Mathematics for Machine Learning](https://mml-book.com/) mentioned in the lecture.
 * [Video: jbstatistics](https://www.youtube.com/user/jbstatistics/playlists)
 
 

@@ -399,3 +399,6 @@ ul.footnotes {
   padding: 15px 25px;
 }
 
+figure.highlight {
+    text-align: left;
+}
