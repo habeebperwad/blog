@@ -208,4 +208,9 @@ W according to linear equation: [0.886432] [[1.106104]]
  
 
 
+<style>
+figure.highlight {
+    text-align: left;
+}
+</style>
     
