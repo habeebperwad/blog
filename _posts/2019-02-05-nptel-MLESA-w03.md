@@ -154,7 +154,7 @@ k  w                gradient w       J(w)    new w
 {% endhighlight %}
 
 * **Question 2 and 3**: It is always better to cross verify your answer. Use [minimum-function](https://www.dcode.fr/minimum-function) 
-(Here f(x)=(x)^2+(y)^2-+4*x-6*y-7 with respect to x,y) to verify whether your gradient descent algorithm implementation is correct or not.
+(Here f(x)=(x)^2+(y)^2+4*x-6*y-7 with respect to x,y) to verify whether your gradient descent algorithm implementation is correct or not.
 
 
 * **Question 7 to 10**:
