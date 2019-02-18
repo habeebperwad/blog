@@ -156,6 +156,7 @@ k  w                gradient w       J(w)    new w
 * **Question 2 and 3**: It is always better to cross verify your answer. Use [minimum-function](https://www.dcode.fr/minimum-function) 
 (Here f(x)=(x)^2+(y)^2+4*x-6*y-7 with respect to x,y) to verify whether your gradient descent algorithm implementation is correct or not.
 
+* [Click here for more hints for question 7](/res/nptel-mlesa-A3Q7.pdf)
 
 * **Question 7 to 10**:
   The objective function here is mean square error (divided by 2 for simplifying derivative). 
