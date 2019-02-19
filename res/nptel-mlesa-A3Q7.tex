@@ -1,0 +1,210 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\usepackage{amsmath}
+
+\usepackage[yyyymmdd]{datetime}
+\usepackage{minted}
+\usepackage[hidelinks]{hyperref}
+\begin{document}
+{\Large \textbf{The Question}} \\
+\rule{\textwidth}{1pt}
+{\scriptsize Hints for NPTEL MLESA assignment-3/question-7, by \url{http://perwad.in} on \today\ at \currenttime} 
+\vspace{20mm} \\
+\noindent Consider 
+\[
+  J(\mathbf{w}) = \frac{1}{10} \sum_{i=1}^{5} (y^{(i)} - w_1x^{(i)} - w_0)^2 \qquad \text{where }
+\mathbf{w}
+= 
+\begin{bmatrix}
+    w_0 \\
+    w_1
+\end{bmatrix}
+\]
+\vspace{5mm} \\
+\noindent and the constants $x^{(i) }$ and $y^{(i) }$ are provided in the table below: \\
+
+
+\begin{tabular}{ |p{1cm}||p{2cm}|p{2cm}|  }
+ \hline
+ \textbf{i}& \textbf{x} &\textbf{y}\\
+ \hline
+ \hline
+ 1 & 0.00 & 0.8822 \\
+ \hline
+ 2 & 0.25 & 1.2165 \\
+ \hline
+ 3 & 0.50 & 1.3171 \\
+ \hline
+ 4 & 0.75 & 1.7930 \\
+ \hline
+ 5 & 1.00 & 1.9826 \\
+\hline
+\end{tabular} \\
+\\
+
+\noindent Find the $\mathbf{w}$ which minimize the J($\mathbf{w}$). 
+
+\[
+    \text{i.e.  } \operatorname*{argmin}_\mathbf{w} J(\mathbf{w})
+\]
+
+
+
+\break
+
+{\Large \textbf{Variables in the function J}} \\
+\rule{\textwidth}{1pt}
+\vspace{3mm} \\
+The J($\mathbf{w}$) is a multivariable function. There are only two variables in the function: $w_0$ and $w_1$.
+The $x^{(i) }$ and $y^{(i) }$ are constants not variables.
+Let us expand the J($\mathbf{w}$) in order to get clarified.  
+
+
+\begin{eqnarray*}
+J(\mathbf{w}) & = & \frac{1}{10} \sum_{i=1}^{5} (y^{(i)} - w_1x^{(i)} - w_0)^2 \\
+\\
+& = & \frac{1}{10} ( (y^{(1)} - x^{(1)}w_1 - w_0)^2 + 
+      (y^{(2)} - x^{(2)}w_1 - w_0)^2 ) + \\ 
+& &     (y^{(3)} - x^{(3)}w_1 - w_0)^2 ) + 
+     (y^{(4)} - x^{(4)}w_1 - w_0)^2 ) + 
+      (y^{(5)} - x^{(5)}w_1 - w_0)^2 ) 
+\end{eqnarray*}
+
+\vspace{3mm}
+
+\noindent x and y are constants. Let us replace them with corresponding values.
+
+
+\begin{eqnarray*}
+J(\mathbf{w}) & = & \frac{1}{10} (\ (0.8822 -  0.00 w_1 - w_0)^2 + 
+      (1.2165 - 0.25 w_1 - w_0)^2 + \\ 
+& &   (1.3171 - 0.50 w_1 - w_0)^2 + 
+     (1.7930 - 0.75 w_1 - w_0)^2 + 
+      (1.9826 - 1.00 w_1 - w_0)^2\ ) \\
+\\
+& \approx & 0.5 w_0^2 + 0.5 w_0 w_1 - 1.43828 w_0 + 0.1875 w_1^2 - 0.858005 w_1 + 1.11385 
+\end{eqnarray*}
+
+\vspace{2mm}
+ 
+It proves that there are only two variables in the function. i.e. $w_0$ and $w_1$. 
+\textbf{Please cross-check} the approximation. I didn't verify the correctness of the approximation. 
+
+
+\break
+{\Large \textbf{Gradient of the function J}} \\
+\rule{\textwidth}{1pt}
+\vspace{3mm} \\
+\noindent Let us see $\nabla$J (gradient of J).
+\[
+\nabla J =
+\begin{bmatrix}
+    \frac{\partial J}{\partial w_0} \\
+\\
+    \frac{\partial J}{\partial w_1} 
+\end{bmatrix}
+\] \\
+\vspace{5mm} \\
+\noindent The partial differentiation of J with respect to $w_0$ and $w_1$:\\
+\begin{eqnarray*}
+\frac{\partial J}{\partial w_0} & = \\
+& = & \frac{1}{10} \sum_{i=1}^{5} ( 2 * (y^{(i)} - w_1x^{(i)} - w_0) * -1 \\
+& = & \frac{-2}{10} \sum_{i=1}^{5} (y^{(i)} - w_1x^{(i)} - w_0)
+\end{eqnarray*}
+\vspace{4mm} \\
+\noindent and
+\vspace{3mm} \\ 
+\begin{eqnarray*}
+\frac{\partial J}{\partial w_1} & = \\ 
+& = & \frac{1}{10} \sum_{i=1}^{5} ( 2 * (y^{(i)} - w_1x^{(i)} - w_0) * -x^{(i)} \\
+& = & \frac{-2}{10} \sum_{i=1}^{5} ( (y^{(i)} - w_1x^{(i)} - w_0) * x^{(i)} )
+\end{eqnarray*}
+ 
+\break
+{\Large \textbf{Computing $\mathbf{w}^{new}$ from $\mathbf{w}^{old}$}} \\
+\rule{\textwidth}{1pt}
+\vspace{3mm} \\
+\noindent Each iteration starts with a $\mathbf{w}$, say $\mathbf{w}^{old}$, and at the end of the iteration will have the updated $\mathbf{w}$, say $\mathbf{w}^{new}$.  
+\[
+ \mathbf{w}^{new} = \mathbf{w}^{old} - \alpha * \nabla_{\mathbf{w}^{old}} J \qquad \text{where } \alpha\ \text{is learning rate.} 
+\] \\
+\vspace{3mm} \\ 
+\noindent Let us expand it.
+\begin{eqnarray*}
+\begin{bmatrix}
+    w_0^{new} \\
+ \\
+    w_1^{new}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    w_0^{old} \\
+ \\
+    w_1^{old}
+\end{bmatrix}
+-
+\alpha *
+\begin{bmatrix}
+    \frac{\partial J}{\partial w_0^{old}} \\
+\\
+    \frac{\partial J}{\partial w_1^{old}} 
+\end{bmatrix}  \\
+\\
+\\
+=
+\begin{bmatrix}
+    w_0^{old} - \alpha * \frac{\partial J}{\partial w_0^{old}} \\
+ \\
+    w_1^{old} - \alpha * \frac{\partial J}{\partial w_1^{old}} 
+\end{bmatrix}
+\end{eqnarray*} \\
+\vspace{3mm} \\ 
+\noindent Have a look at the $w_0^{new}$ and $w_1^{new}$ separately. \\
+\vspace{3mm}
+\[
+    w_0^{new} = w_0^{old} - \alpha * \frac{\partial J}{\partial w_0^{old}} \\
+\]
+\\
+\noindent and
+\\ 
+\[
+ w_1^{new} =  w_1^{old} - \alpha * \frac{\partial J}{\partial w_1^{old}} \\
+\]
+
+
+\break
+{\Large \textbf{Python Code}} \\
+\rule{\textwidth}{1pt}
+\begin{minted}[mathescape]{python}
+
+import numpy as np
+
+x = np.array([0, 0.25, 0.5, 0.75, 1.00])
+y = np.array([0.8822, 1.2165, 1.3171, 1.7930, 1.9826])
+
+def J(w):
+  return 1.0/10 * sum([(y[i]-w[1]*x[i]-w[0])**2 for i in range(5)])
+    
+def gradientJ(w):
+  return np.array([
+    -2.0/10 * sum([(y[i]-w[1]*x[i]-w[0]) for i in range(5)]),     # wrt w0
+    -2.0/10 * sum([(y[i]-w[1]*x[i]-w[0])*x[i] for i in range(5)]) # wrt w1
+  ])
+  
+w = np.array([0, 0])
+alpha = 1.0
+
+for k in range(1, 6):
+  print("%d old W:%-24s " % (k, w), end="")
+  w = w - alpha * gradientJ(w)
+  print(" new W:%s " % (w))
+
+\end{minted}
+
+\end{document}
