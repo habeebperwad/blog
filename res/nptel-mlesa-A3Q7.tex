@@ -3,7 +3,7 @@
 \geometry{
  a4paper,
  total={170mm,257mm},
- left=20mm,
+ left=15mm,
  top=20mm,
  }
 \usepackage{amsmath}
@@ -11,6 +11,10 @@
 \usepackage[yyyymmdd]{datetime}
 \usepackage{minted}
 \usepackage[hidelinks]{hyperref}
+\newcommand{\afmod}[1]{\text{{\color{blue} \textbf{$#1$}}}}
+\newcommand{\qtext}[1]{\qquad \text{{\color{orange} \small{#1}}}}
+\newcommand{\drule}[1]{{\color{blue} {\large \[\mathbf{#1}\]}}}
+\newcommand{\drtext}[1]{{\color{black} {\qquad #1 \qquad }}} 
 \begin{document}
 {\Large \textbf{The Question}} \\
 \rule{\textwidth}{1pt}
@@ -98,6 +102,28 @@ It proves that there are only two variables in the function. i.e. $w_0$ and $w_1
 
 
 \break
+{\Large \textbf{Derivative Rules}} \\
+\rule{\textwidth}{1pt}
+\vspace{1mm} \\
+\begin{itemize}
+ \item \textbf{Constant Rule}
+ 	\drule{f(x) = c \drtext{then} f'(x) = 0} 
+ \item \textbf{Constant Multiple Rule}
+	\drule{g(x) = c \times f(x) \drtext{then} g'(x) = c \times f'(x)}
+ \item \textbf{Power Rule}
+	\drule{f(x) = x^n \drtext{then} f'(x) = n \times x^{n-1}}
+ \item \textbf{Sum and Difference Rule}
+	\drule{h(x) = f(x) \pm g(x) \drtext{then} h'(x) = f'(x) \pm g'(x)}
+ \item \textbf{Product Rule}
+	\drule{h(x) = f(x) \times g(x) \drtext{then} h'(x) = f'(x){\times}g(x) + f(x){\times}g'(x)}
+ \item \textbf{Quotient Rule}
+	\drule{h(x) = \frac{f(x)}{g(x)} \drtext{then} h'(x) = \frac{f'(x){\times}g(x) - f(x){\times}g'(x)}{g(x)^2}}
+ \item \textbf{Chain Rule} 
+	\drule{h(x) = f(g(x)) \drtext{then} h'(x) = f'(g(x)) \times g'(x)}
+\end{itemize}
+
+
+\break
 {\Large \textbf{Gradient of the function J}} \\
 \rule{\textwidth}{1pt}
 \vspace{3mm} \\
@@ -113,18 +139,41 @@ It proves that there are only two variables in the function. i.e. $w_0$ and $w_1
 \vspace{5mm} \\
 \noindent The partial differentiation of J with respect to $w_0$ and $w_1$:\\
 \begin{eqnarray*}
-\frac{\partial J}{\partial w_0} & = \\
-& = & \frac{1}{10} \sum_{i=1}^{5} ( 2 * (y^{(i)} - w_1x^{(i)} - w_0) * -1 \\
-& = & \frac{-2}{10} \sum_{i=1}^{5} (y^{(i)} - w_1x^{(i)} - w_0)
+%\begin{flalign*}
+\frac{\partial J}{\partial w_0} & = &  \\
+& = & \frac{\partial}{\partial w_0} \bigg(\ \frac{1}{10} \ \sum_{i=1}^{5} (y^{(i)} - w_1x^{(i)} - w_0)^2\ \bigg) \\
+& = & \afmod{\frac{1}{10}} \ \frac{\partial}{\partial w_0} \bigg(\  \sum_{i=1}^{5} (y^{(i)} - w_1x^{(i)} - w_0)^2\ \bigg)
+ \qtext{Constant Multiple Rule} \\
+& = & \frac{1}{10} \ \afmod{\sum_{i=1}^{5}} \bigg(\ \frac{\partial}{\partial w_0} \big(\ y^{(i)} - w_1x^{(i)} - w_0\big)^2\ \bigg) \qtext{Sum Rule} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ \afmod{2 \times \big(y^{(i)} - w_1x^{(i)} - w_0 \big)^1 \times \frac{\partial}{\partial w_0} \big(y^{(i)} - w_1x^{(i)} - w_0 \big)}\ \bigg) \qtext{Chain Rule} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ 2 \times \big(y^{(i)}-w_1x^{(i)}-w_0 \big) \times \big(\ \afmod{\frac{\partial\ y^{(i)}}{\partial w_0} - \frac{\partial\ w_1x^{(i)}}{\partial w_0} - \frac{\partial\ w_0}{\partial w_0}} \ \big) \bigg) \qtext{Sum/Diff Rule} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ 2 \times \big(y^{(i)} - w_1x^{(i)} - w_0 \big) \times \big(\ \afmod{0} - \afmod{0} - \frac{\partial \ w_0}{\partial w_0} \big) \bigg) \qtext{Constant Rule } \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ \afmod{-}2 \times \big( y^{(i)} - w_1x^{(i)} - w_0 \big) \times \afmod{\frac{\partial\ w_0}{\partial w_0}}\bigg)\ \qtext{Simplification} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ -2 \times (y^{(i)} - w_1x^{(i)} - w_0) \times \afmod{1 \times w_0^0} \ \bigg) \qtext{Power Rule} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ -2 \times (y^{(i)} - w_1x^{(i)} - w_0 \big) \ \bigg) \qtext{Simplification} \\
+& = & \frac{\afmod{-2}}{10} \ \sum_{i=1}^{5} \bigg( \ y^{(i)} - w_1x^{(i)} - w_0 \ \bigg) \qtext{Constant Rule} \\
+& & \quad  \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim
 \end{eqnarray*}
 \vspace{4mm} \\
 \noindent and
-\vspace{3mm} \\ 
+\vspace{3mm} \\
+
 \begin{eqnarray*}
-\frac{\partial J}{\partial w_1} & = \\ 
-& = & \frac{1}{10} \sum_{i=1}^{5} ( 2 * (y^{(i)} - w_1x^{(i)} - w_0) * -x^{(i)} \\
-& = & \frac{-2}{10} \sum_{i=1}^{5} ( (y^{(i)} - w_1x^{(i)} - w_0) * x^{(i)} )
-\end{eqnarray*}
+\frac{\partial J}{\partial w_1} & = &  \\
+& = & \frac{\partial}{\partial w_1} \bigg(\ \frac{1}{10} \ \sum_{i=1}^{5} (y^{(i)} - w_1x^{(i)} - w_0)^2\ \bigg) \\
+& = & \afmod{\frac{1}{10}} \ \frac{\partial}{\partial w_1} \bigg(\  \sum_{i=1}^{5} (y^{(i)} - w_1x^{(i)} - w_0)^2\ \bigg)
+ \qtext{Constant Multiple Rule} \\
+& = & \frac{1}{10} \ \afmod{\sum_{i=1}^{5}} \bigg(\ \frac{\partial}{\partial w_1} \big(\ y^{(i)} - w_1x^{(i)} - w_0\big)^2\ \bigg) \qtext{Sum Rule} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ \afmod{2 \times \big(y^{(i)} - w_1x^{(i)} - w_0 \big)^1 \times \frac{\partial}{\partial w_1} \big(y^{(i)} - w_1x^{(i)} - w_0 \big)}\ \bigg) \qtext{Chain Rule} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ 2 \times \big(y^{(i)}-w_1x^{(i)}-w_0 \big) \times \big(\ \afmod{\frac{\partial\ y^{(i)}}{\partial w_1} - \frac{\partial\ w_1x^{(i)}}{\partial w_1} - \frac{\partial\ w_0}{\partial w_1}} \ \big) \bigg) \qtext{Sum/Diff Rule} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ 2 \times \big(y^{(i)} - w_1x^{(i)} - w_0 \big) \times \big(\ \afmod{0} - \frac{\partial\ w_1x^{(i)}}{\partial w_1} - \afmod{0} \big) \bigg) \qtext{Constant Rule } \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ \afmod{-}2 \times \big( y^{(i)} - w_1x^{(i)} - w_0 \big) \times \afmod{\frac{\partial\ w_1x^{(i)}}{\partial w_1}}\bigg)\ \qtext{Simplification} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ \afmod{-}2 \times \big( y^{(i)} - w_1x^{(i)} - w_0 \big) \times \afmod{x^{(i)}} \times \frac{\partial\ w_1}{\partial w_1}\bigg)\ \qtext{Constant Rule} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ -2 \times (y^{(i)} - w_1x^{(i)} - w_0) \times x^{(i)} \times \afmod{1 \times w_1^0} \ \bigg) \qtext{Power Rule} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ -2 \times (y^{(i)} - w_1x^{(i)} - w_0 \big) \times x^{(i)} \ \bigg) \qtext{Simplification} \\
+& = & \frac{\afmod{-2}}{10} \ \sum_{i=1}^{5} \bigg( \ \big( y^{(i)} - w_1x^{(i)} - w_0 \big) \times x^{(i)} \ \bigg) \qtext{Constant Rule}\\
+& & \quad \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \\  
+\end{eqnarray*} 
  
 \break
 {\Large \textbf{Computing $\mathbf{w}^{new}$ from $\mathbf{w}^{old}$}} \\
