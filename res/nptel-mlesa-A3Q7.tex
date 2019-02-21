@@ -13,8 +13,8 @@
 \usepackage[hidelinks]{hyperref}
 \newcommand{\afmod}[1]{\text{{\color{blue} \textbf{$#1$}}}}
 \newcommand{\qtext}[1]{\qquad \text{{\color{orange} \small{#1}}}}
-\newcommand{\drule}[1]{{\color{blue} {\large \[\mathbf{#1}\]}}}
-\newcommand{\drtext}[1]{{\color{black} {\qquad #1 \qquad }}} 
+%\newcommand{\drule}[2]{{\color{black} {if \quad}}{\color{blue} {\large \[\mathbf{#1}\]}}}
+\newcommand{\drule}[2]{\[\text{If \; } {\color{blue} {\large \mathbf{#1}}} \text{, \quad then \; } {\color{blue} {\large \mathbf{#2}}}\]\\}
 \begin{document}
 {\Large \textbf{The Question}} \\
 \rule{\textwidth}{1pt}
@@ -107,19 +107,23 @@ It proves that there are only two variables in the function. i.e. $w_0$ and $w_1
 \vspace{1mm} \\
 \begin{itemize}
  \item \textbf{Constant Rule}
- 	\drule{f(x) = c \drtext{then} f'(x) = 0} 
+ 	\drule{f(x) = c}{f'(x) = 0} 
  \item \textbf{Constant Multiple Rule}
-	\drule{g(x) = c \times f(x) \drtext{then} g'(x) = c \times f'(x)}
+	\drule{g(x) = c \times f(x)}{g'(x) = c \times f'(x)}
  \item \textbf{Power Rule}
-	\drule{f(x) = x^n \drtext{then} f'(x) = n \times x^{n-1}}
+	\drule{f(x) = x^n}{f'(x) = n \times x^{n-1}}
  \item \textbf{Sum and Difference Rule}
-	\drule{h(x) = f(x) \pm g(x) \drtext{then} h'(x) = f'(x) \pm g'(x)}
+	\drule{h(x) = f(x) \pm g(x)}{h'(x) = f'(x) \pm g'(x)}
+        $\text{ \qquad  \qquad Therefore,}$
+	\drule{h(x) = \sum f(x)}{h'(x) = \sum f'(x) }
  \item \textbf{Product Rule}
-	\drule{h(x) = f(x) \times g(x) \drtext{then} h'(x) = f'(x){\times}g(x) + f(x){\times}g'(x)}
+	\drule{h(x) = f(x) \times g(x)}{h'(x) = f'(x){\times}g(x) + f(x){\times}g'(x)}
  \item \textbf{Quotient Rule}
-	\drule{h(x) = \frac{f(x)}{g(x)} \drtext{then} h'(x) = \frac{f'(x){\times}g(x) - f(x){\times}g'(x)}{g(x)^2}}
+	\drule{h(x) = \frac{f(x)}{g(x)}}{h'(x) = \frac{f'(x){\times}g(x) - f(x){\times}g'(x)}{g(x)^2}}
  \item \textbf{Chain Rule} 
-	\drule{h(x) = f(g(x)) \drtext{then} h'(x) = f'(g(x)) \times g'(x)}
+	\drule{h(x) = f(g(x))}{h'(x) = f'(g(x)) \times g'(x)}
+ 	$\text{ \qquad  Therefore (using Power Rule too), }$
+	\drule{h(x) = \big(g(x)\big)^n}{h'(x) = n \times \big(g(x)\big)^{n-1} \times g'(x) }
 \end{itemize}
 
 
@@ -145,7 +149,7 @@ It proves that there are only two variables in the function. i.e. $w_0$ and $w_1
 & = & \afmod{\frac{1}{10}} \ \frac{\partial}{\partial w_0} \bigg(\  \sum_{i=1}^{5} (y^{(i)} - w_1x^{(i)} - w_0)^2\ \bigg)
  \qtext{Constant Multiple Rule} \\
 & = & \frac{1}{10} \ \afmod{\sum_{i=1}^{5}} \bigg(\ \frac{\partial}{\partial w_0} \big(\ y^{(i)} - w_1x^{(i)} - w_0\big)^2\ \bigg) \qtext{Sum Rule} \\
-& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ \afmod{2 \times \big(y^{(i)} - w_1x^{(i)} - w_0 \big)^1 \times \frac{\partial}{\partial w_0} \big(y^{(i)} - w_1x^{(i)} - w_0 \big)}\ \bigg) \qtext{Chain Rule} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ \afmod{2 \times \big(y^{(i)} - w_1x^{(i)} - w_0 \big)^1 \times \frac{\partial}{\partial w_0} \big(y^{(i)} - w_1x^{(i)} - w_0 \big)}\ \bigg) \qtext{Chain Rule, Power Rule} \\
 & = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ 2 \times \big(y^{(i)}-w_1x^{(i)}-w_0 \big) \times \big(\ \afmod{\frac{\partial\ y^{(i)}}{\partial w_0} - \frac{\partial\ w_1x^{(i)}}{\partial w_0} - \frac{\partial\ w_0}{\partial w_0}} \ \big) \bigg) \qtext{Sum/Diff Rule} \\
 & = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ 2 \times \big(y^{(i)} - w_1x^{(i)} - w_0 \big) \times \big(\ \afmod{0} - \afmod{0} - \frac{\partial \ w_0}{\partial w_0} \big) \bigg) \qtext{Constant Rule } \\
 & = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ \afmod{-}2 \times \big( y^{(i)} - w_1x^{(i)} - w_0 \big) \times \afmod{\frac{\partial\ w_0}{\partial w_0}}\bigg)\ \qtext{Simplification} \\
@@ -164,7 +168,7 @@ It proves that there are only two variables in the function. i.e. $w_0$ and $w_1
 & = & \afmod{\frac{1}{10}} \ \frac{\partial}{\partial w_1} \bigg(\  \sum_{i=1}^{5} (y^{(i)} - w_1x^{(i)} - w_0)^2\ \bigg)
  \qtext{Constant Multiple Rule} \\
 & = & \frac{1}{10} \ \afmod{\sum_{i=1}^{5}} \bigg(\ \frac{\partial}{\partial w_1} \big(\ y^{(i)} - w_1x^{(i)} - w_0\big)^2\ \bigg) \qtext{Sum Rule} \\
-& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ \afmod{2 \times \big(y^{(i)} - w_1x^{(i)} - w_0 \big)^1 \times \frac{\partial}{\partial w_1} \big(y^{(i)} - w_1x^{(i)} - w_0 \big)}\ \bigg) \qtext{Chain Rule} \\
+& = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ \afmod{2 \times \big(y^{(i)} - w_1x^{(i)} - w_0 \big)^1 \times \frac{\partial}{\partial w_1} \big(y^{(i)} - w_1x^{(i)} - w_0 \big)}\ \bigg) \qtext{Chain Rule, Power Rule} \\
 & = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ 2 \times \big(y^{(i)}-w_1x^{(i)}-w_0 \big) \times \big(\ \afmod{\frac{\partial\ y^{(i)}}{\partial w_1} - \frac{\partial\ w_1x^{(i)}}{\partial w_1} - \frac{\partial\ w_0}{\partial w_1}} \ \big) \bigg) \qtext{Sum/Diff Rule} \\
 & = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ 2 \times \big(y^{(i)} - w_1x^{(i)} - w_0 \big) \times \big(\ \afmod{0} - \frac{\partial\ w_1x^{(i)}}{\partial w_1} - \afmod{0} \big) \bigg) \qtext{Constant Rule } \\
 & = & \frac{1}{10} \ \sum_{i=1}^{5} \bigg(\ \afmod{-}2 \times \big( y^{(i)} - w_1x^{(i)} - w_0 \big) \times \afmod{\frac{\partial\ w_1x^{(i)}}{\partial w_1}}\bigg)\ \qtext{Simplification} \\
@@ -175,6 +179,7 @@ It proves that there are only two variables in the function. i.e. $w_0$ and $w_1
 & & \quad \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \sim \\  
 \end{eqnarray*} 
  
+
 \break
 {\Large \textbf{Computing $\mathbf{w}^{new}$ from $\mathbf{w}^{old}$}} \\
 \rule{\textwidth}{1pt}
