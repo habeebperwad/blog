@@ -23,11 +23,12 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://perwad.in/"
 twitter_username: habeebperwad
 github_username:  habeebperwad
-
+excerpt_separator: ""
 # Build Settings
 sass:
     sass_dir: _sass
 include: ['_pages']
+highlighter: rouge
 kramdown:
     input: GFM
 

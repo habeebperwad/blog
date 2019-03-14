@@ -1,0 +1,35 @@
+---
+layout: post
+title: Display a digit from keras mnist dataset
+permalink: display-a-digit-from-keras-mnist-dataset
+date: 2019-03-14 12:49:00.000000000 +05:30
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+category: Deep Learning
+tags: [mnist, keras, code]
+---
+
+
+{% highlight python %}
+# libraries
+from keras.datasets import mnist
+import matplotlib.pyplot as plt
+
+# for jupyter notebook
+%matplotlib inline
+
+# Load mnist data.
+(train_images, train_labels), (test_images, test_labels) \
+    = mnist.load_data()
+
+# Index of the training image to be displayed
+index = 1842
+
+# Display the image
+plt.imshow(train_images[index], cmap=plt.cm.binary)
+plt.title("Digit: {}".format(train_labels[index]))
+plt.show()
+{% endhighlight %}
