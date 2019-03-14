@@ -14,7 +14,11 @@ category: Education
 tags: [Machine Learning, for-indians, nptel]
 ---
 
-Here is some short notes I am preparing for this course. It will be useful for revision. 
+---
+[**Click here for this course related my assignments and sample programs.**](https://github.com/habeebperwad/mlesa)
+
+---
+
 
 * [**Week 1**:  Mathematical Basics 1 – Introduction to Machine Learning, Linear Algebra](/nptel--mlesa--w01)
 * [**Week 2**:  Mathematical Basics 2 -- Probability](/nptel--mlesa--w02)
