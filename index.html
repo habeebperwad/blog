@@ -13,7 +13,11 @@ layout: default
         <span class="date">| &nbsp; &nbsp; <time class="entry-date"> {{ post.date | date: "%b %-d, %Y" }}</time> </span>
         <span class="tags-links">| &nbsp; &nbsp; {{post.tags | join: ', '}} </span>
     </div>
+        {% if post.summary  %}
+            {{ post.summary }}
+        {% else %}
             {{ post.content| truncatewords:50 | strip_html  }}
+        {% endif %}
         </article>
     {% endfor %}
 </div>
