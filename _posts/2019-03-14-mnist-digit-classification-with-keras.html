@@ -1,0 +1,47 @@
+---
+layout: post
+title: MNIST digit classification with keras
+permalink: mnist-digit-classification-with-keras
+date: 2019-03-14 21:13:00.000000000 +05:30
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+category: Deep Learning
+tags: [mnist, keras, code]
+---
+
+
+{% highlight python %}
+from keras.datasets import mnist
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.utils import to_categorical
+import numpy as np
+
+features_count = 28 * 28
+feature_maxvalue = 255
+
+# Load mnist data.
+(trainX, trainY), (testX, testY) = mnist.load_data()
+# Reshape the image data to two dimesion.
+trainX = trainX.reshape((60000, features_count))
+testX = testX.reshape((10000, features_count))
+# Convert the feature values to the range [0,1]  
+trainX = trainX.astype('float32') / feature_maxvalue
+testX = testX.astype('float32') / feature_maxvalue
+# The Y is in scaler. Convert to vector via one-hot encoding.
+trainY = to_categorical(trainY)
+testY = to_categorical(testY)
+
+net = Sequential()
+# First hidden layer. Need to specify input shape. 
+net.add(Dense(800, activation='relu', input_shape=(features_count,)))
+net.add(Dense(10, activation='softmax'))
+net.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+net.fit(trainX, trainY, epochs=10, batch_size=100)
+print('Test accuracy: ', net.evaluate(testX, testY)[1])
+# Test accuracy:  0.9811
+{% endhighlight %}
+
