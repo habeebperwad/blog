@@ -21,18 +21,18 @@ summary: ''
 ---
 
 
-* [**Week 1**:  Mathematical Basics 1 – Introduction to Machine Learning, Linear Algebra](/nptel--mlesa--w01)
-* [**Week 2**:  Mathematical Basics 2 -- Probability](/nptel--mlesa--w02)
-* [**Week 3**:  Computational Basics – Numerical computation and optimization, Introduction to Machine Learning packages](/nptel--mlesa--w03)
-* Week 4  :  Linear and Logistic Regression – Bias/Variance Tradeoff, Regularization, Variants of Gradient Descent, MLE, MAP, Applications
-* Week 5  :  Neural Networks – Multilayer Perceptron, Backpropagation, Applications
-* Week 6  :  Convolutional Neural Networks 1 – CNN Operations, CNN architectures
-* Week 7  :  Convolutional Neural Networks 2 – Training, Transfer Learning, Applications
-* Week 8  :  Recurrent Neural Networks ¬– RNN, LSTM, GRU, Applications
-* Week 9  :  Classical Techniques 1 – Bayesian Regression, Binary Trees, Random Forests, SVM, Naïve Bayes, Applications
-* Week 10  :  Classical Techniques 2 – k-Means, kNN, GMM, Expectation Maximization, Applications
-* Week 11  :  Advanced Techniques 1 – Structured Probabilistic Models, Monte Carlo Methods
-* Week 12  :  Advanced Techniques 2 – Autoencoders, Generative Adversarial Networks
+0. [Mathematical Basics 1 – Introduction to Machine Learning, Linear Algebra](/nptel--mlesa--w01)
+0. [Mathematical Basics 2 -- Probability](/nptel--mlesa--w02)
+0. [Computational Basics – Numerical computation and optimization, Introduction to Machine Learning packages](/nptel--mlesa--w03)
+0. Linear and Logistic Regression – Bias/Variance Tradeoff, Regularization, Variants of Gradient Descent, MLE, MAP, Applications
+0. Neural Networks – Multilayer Perceptron, Backpropagation, Applications
+0. Convolutional Neural Networks 1 – CNN Operations, CNN architectures
+0. Convolutional Neural Networks 2 – Training, Transfer Learning, Applications
+0. Recurrent Neural Networks ¬– RNN, LSTM, GRU, Applications
+0. Classical Techniques 1 – Bayesian Regression, Binary Trees, Random Forests, SVM, Naïve Bayes, Applications
+0. Classical Techniques 2 – k-Means, kNN, GMM, Expectation Maximization, Applications
+0. Advanced Techniques 1 – Structured Probabilistic Models, Monte Carlo Methods
+0. Advanced Techniques 2 – Autoencoders, Generative Adversarial Networks
 
 
 ### Recommended Books
@@ -48,15 +48,8 @@ Some books [reccommended by NPTEL](https://youtu.be/w1v-uQthcXs?t=701) for this 
 
 4. References to research papers will be provided through the course.
 
+### Research Papers
 
-### Matlab, Python or R?
-The course syllabus and recommended books indicates python is the language you need to know for this course.
-The instructor may use Matlab for giving examples. If you have any programming experience, you can understand what is going on.
-If you happened to know R or Matlab, you can use that knowledge for solving assignment problems.
-But if you don't know those languages, not at all need to worry. You can achieve anything using python!
-
-If you didn't set up python environment in your local machine or want to share the code with friends, try [Colab](https://colab.research.google.com/).
-
-#### Disclaimer (or about me!)
-I have no relations with NPTEL to make any formal statement about this course. 
-This page created for helping my coursemates! My qualification are eight years experience in software industry, Bsc-Statistics, Master of computer science, UGC NET (CS). So I have decent understanding of statistics, mathematics and computer science.
+- [Fully Convolutional Networks for Semantic Segmentation. Jonathan Long, Evan Shelhamer, Trevor Darrell](https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf)
+- [Understanding the difficulty of training deep feedforward neural networks. Xavier Glorot Yoshua Bengio](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf)
+- [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift. Sergey Ioffe, Christian Szegedy](https://arxiv.org/pdf/1502.03167.pdf)
