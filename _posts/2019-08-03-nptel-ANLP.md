@@ -30,17 +30,20 @@ summary: ''
 
 ### Recommended Books
 0. **History, Features, and Typology of Language Corpora**, Niladri and Arulmozi, Springer 2018 <br/>
-   Chapter 2: Features of a Corpus
-0. Ian Goodfellow, Yoshua Bengio, and Aaron Courville, Deep Learning, http://www.deeplearningbook.org. MIT Press, 2016.
+   Chapter 2: Features of a Corpus: <a href="https://b-ok.cc/book/3495162/1eb891" rel="nofollow">Say No to Piracy!</a>
+0. **Deep Learning**, Goodfellow et al, MIT Press, 2017 <br/>
+   The online version of the book available for free: [deeplearningbook.org](https://www.deeplearningbook.org/)
+0. **Handbook of natural language processing**, Nitin Indurkhya and Fred J Damerau, 2010.
+    <a href="https://b-ok.cc/book/1123519/48846e" rel="nofollow">Stop Piracy!</a>
+0. [**Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition**](https://web.stanford.edu/~jurafsky/slp3/ed3book.pdf), Daniel Jurafsky and James H. Martin, 2000.
+0. [**Foundations of Statistical Natural Language Processing**](https://www.cs.vassar.edu/~cs366/docs/Manning_Schuetze_StatisticalNLP.pdf), Christopher D. Manning et al, 1999.
+0. [**An Introduction to Information Retrieval**](https://nlp.stanford.edu/IR-book/pdf/irbookonlinereading.pdf#page=146), Christopher D. Manning et al, 2009. <br />
+  Chapter 6: Scoring, term weighting and the vector space model.
+0. [**Python 3 text processing with NLTK 3 cookbook**](https://ucilnica.fri.uni-lj.si/pluginfile.php/46018/mod_resource/content/1/Python%203%20Text%20Processing%20with%20NLTK%203%20Cookbook.pdf), Jacob Perkins,  Packt, 2014.
+0. **Linguistic Structure Prediction. Synthesis Lectures on Human Language Technologies**, Noah A. Smith, 2011.
+    <a href="https://b-ok.cc/book/1208763/c3ef65" rel="nofollow">Piracy. It's a crime.</a>
 
-0. Nitin Indurkhya and Fred J Damerau, "Handbook of natural language processing," Chapman and Hall/CRC, 2010.
-0. Daniel Jurafsky and James H. Martin "Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition," 1st. Upper Saddle River, NJ, USA: Prentice Hall PTR, 2000. isbn: 0130950696.
-0. C.D. Manning et al,  "Foundations of Statistical Natural Language Processing," Mit Press. MIT Press, 1999. isbn: 9780262133609. url: https://books.google.co.in/books?id=YiFDxbEX3SUC. 
-0. Christopher D. Manning, Prabhakar Raghavan, and Hinrich Schutze, "An Introduction to Information Retrieval," Cambridge UP, 2009. Chap. 6,pp. 109–133.
-0. Jacob Perkins, "Python 3 text processing with NLTK 3 cookbook," Packt Publishing Ltd, 2014.
-0. Noah A. Smith, "Linguistic Structure Prediction. Synthesis Lectures on Human Language Technologies," Morgan and Claypool, May 2011.
 
 
 ### Research Papers
-
 
