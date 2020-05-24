@@ -1,7 +1,7 @@
 ---
 layout: post
 title: On Rewriting Well
-permalink: nptel--ra
+permalink: on-rewriting-well
 date: 2020-05-24 17:20:02.02 +05:30
 type: post
 parent_id: '0'
